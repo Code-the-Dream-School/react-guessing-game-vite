@@ -1,47 +1,32 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import Button from "./Button";
 
-class GuessControl extends Component {
-  constructor(props) {
-    super(props);
+const GuessControl = ({ onGuess }) => {
+  
+  const [currentGuess, setCurrentGuess] = useState("");
 
-    this.state = {
-      currentGuess: "",
-    };
+  const onSubmitGuess = () => {
+    if (currentGuess !== "") {
+      onGuess(parseInt(currentGuess));
+      setCurrentGuess(""); // Reset currentGuess to an empty string after submitting
+    }
+  };
 
-    /**
-     * These lines are required to make the methods/functions declared on this
-     *  class have the correct `this` object when they run.
-     */
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.onSubmitGuess = this.onSubmitGuess.bind(this);
-  }
 
-  handleInputChange(event) {
-    this.setState({ currentGuess: event.target.value });
-  }
+  const handleInputChange = (e) => {
+    setCurrentGuess(e.target.value); // Update currentGuess state value when input changes
+  };
 
-  onSubmitGuess() {
-    // Since the values from an HTML input are strings by default,
-    //  convert to a number for the returned guess value
-    //  by passing in the string to the Number function.
-    // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-    this.props.onGuess(Number(this.state.currentGuess));
-    this.setState({ currentGuess: "" });
-  }
-
-  render() {
-    return (
-      <div>
-        <input
-          type="number"
-          value={this.state.currentGuess}
-          onChange={this.handleInputChange}
-        />
-        <Button onClick={this.onSubmitGuess}>Submit Guess</Button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <input
+        type="number"
+        value={currentGuess}
+        onChange={handleInputChange} // Set the onChange property for the input element to refer to handleInputChange function
+      />
+      <Button onClick={onSubmitGuess}>Submit Guess</Button>
+    </div>
+  );
+};
 
 export default GuessControl;
