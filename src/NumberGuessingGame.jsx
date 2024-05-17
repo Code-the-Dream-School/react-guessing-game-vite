@@ -15,7 +15,7 @@ const NumberGuessingGame = () => {
 
   
 
-  const [numberToGuess, setNumberToGuess] = useState(Math.floor(Math.random() * 100) + 1);
+  const [numberToGuess, setNumberToGuess] = useState(getRandomNumber());
   const [numberOfGuesses, setNumberOfGuesses] = useState(0);
   const [latestGuess, setLatestGuess] = useState(null);
 
@@ -32,7 +32,7 @@ const NumberGuessingGame = () => {
 
 
   const handleReset = () => {
-    setNumberToGuess(Math.floor(Math.random() * 100) + 1);
+    setNumberToGuess(getRandomNumber());
     setNumberOfGuesses(0);
     setLatestGuess(null);
   };
