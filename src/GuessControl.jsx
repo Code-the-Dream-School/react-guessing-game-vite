@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import Button from "./Button";
 import PropTypes from "prop-types";
@@ -71,3 +70,4 @@ GuessControl.propTypes = {
 // }
 
 export default GuessControl;
+
