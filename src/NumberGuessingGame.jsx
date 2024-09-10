@@ -82,10 +82,6 @@ const NumberGuessingGame = () => {
   const [latestGuess, setLatestGuess] = useState(null);
 
   const handleGuess = (guess) => {
-    if (isGameOver) {
-      handleReset();
-      return;
-    }
     setLatestGuess(Number(guess));
     setNumberOfGuesses(numberOfGuesses + 1);
   };
@@ -106,7 +102,7 @@ const NumberGuessingGame = () => {
       <h2>
         Can you guess the number I am thinking of in {MAX_ATTEMPTS} tries?
       </h2>
-      <GuessControl onGuess={handleGuess} />
+      <GuessControl onGuess={handleGuess} isGameOver={isGameOver}/>
       {isGameOver && <GameOver hasWon={isCorrectGuess} onReset={handleReset} />}
       {!isGameOver && (
         <GuessMessage

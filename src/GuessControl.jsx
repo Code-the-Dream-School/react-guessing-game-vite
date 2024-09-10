@@ -46,7 +46,7 @@ import Button from "./Button";
 
 // export default GuessControl;
 
-const GuessControl = ({ onGuess }) => {
+const GuessControl = ({ onGuess, isGameOver }) => {
   const [currentGuess, setCurrentGuess] = useState("");
 
   const handleInputChange = (event) => {
@@ -60,8 +60,15 @@ const GuessControl = ({ onGuess }) => {
 
   return (
     <div>
-      <input type="number" value={currentGuess} onChange={handleInputChange} />
-      <Button onClick={onSubmitGuess}>Submit Guess</Button>
+      <input
+        type="number"
+        value={currentGuess}
+        onChange={handleInputChange}
+        disabled={isGameOver}
+      />
+      <Button onClick={onSubmitGuess} disabled={isGameOver}>
+        Submit Guess
+      </Button>
     </div>
   );
 };
