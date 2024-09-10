@@ -1,7 +1,7 @@
-import React, { Component, useState } from "react";
 import GuessControl from "./GuessControl";
 import GuessMessage from "./GuessMessage";
 import GameOver from "./GameOver";
+import { useEffect, useState } from "react";
 
 /**
  *
@@ -82,6 +82,10 @@ const NumberGuessingGame = () => {
   const [latestGuess, setLatestGuess] = useState(null);
 
   const handleGuess = (guess) => {
+    if (isGameOver) {
+      handleReset();
+      return;
+    }
     setLatestGuess(Number(guess));
     setNumberOfGuesses(numberOfGuesses + 1);
   };
@@ -94,8 +98,7 @@ const NumberGuessingGame = () => {
 
   const isCorrectGuess = latestGuess === numberToGuess;
 
-  const isGameOver =
-    isCorrectGuess || numberOfGuesses === MAX_ATTEMPTS;
+  const isGameOver = isCorrectGuess || numberOfGuesses === MAX_ATTEMPTS;
 
   return (
     <div>
