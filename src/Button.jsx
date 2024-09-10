@@ -4,6 +4,7 @@ const buttonStyle = {
   minHeight: "2em",
 };
 
+// eslint-disable-next-line react/prop-types
 export default function Button({ onClick, children }) {
   return (
     <button style={buttonStyle} onClick={onClick}>
