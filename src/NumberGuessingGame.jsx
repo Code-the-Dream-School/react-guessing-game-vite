@@ -17,20 +17,19 @@ function NumberGuessingGame(props) {
     const [latestGuess, setLatestGuess] = useState(null);
 
     function handleGuess(guess) {
-      setLatestGuess(guess);
-      setNumberOfGuesses(numberOfGuesses + 1);
+        setLatestGuess(guess);
+        setNumberOfGuesses(numberOfGuesses + 1);
     }
 
     function handleReset() {
-       setNumberToGuess(getRandomNumber());
-       setNumberOfGuesses(0);
-       setLatestGuess(null);
+        setNumberToGuess(getRandomNumber());
+        setNumberOfGuesses(0);
+        setLatestGuess(null);
     }
 
     const isCorrectGuess = latestGuess === numberToGuess;
 
-    const isGameOver =
-        isCorrectGuess || numberOfGuesses === MAX_ATTEMPTS;
+    const isGameOver = isCorrectGuess || numberOfGuesses === MAX_ATTEMPTS;
 
     return (
         <div>
@@ -53,7 +52,5 @@ function NumberGuessingGame(props) {
         </div>
     );
 }
-
-
 
 export default NumberGuessingGame;
