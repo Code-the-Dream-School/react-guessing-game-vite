@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-function GuessControl(onGuess) {
+function GuessControl({ onGuess }) {
     const [currentGuess, setCurrentGuess] = React.useState('');
 
     function handleInputChange(event) {
@@ -10,7 +10,7 @@ function GuessControl(onGuess) {
 
     function onSubmitGuess() {
         onGuess(Number(currentGuess));
-        setCurrentGuess({ currentGuess: "" });
+        setCurrentGuess('');
     }
     
     return (
