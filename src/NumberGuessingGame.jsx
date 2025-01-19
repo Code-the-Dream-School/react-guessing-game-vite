@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import GuessControl from "./GuessControl";
 import GuessMessage from "./GuessMessage";
 import GameOver from "./GameOver";
@@ -13,11 +13,9 @@ const NumberGuessingGame = () => {
   const [numberToGuess, setNumberToGuess] = useState(getRandomNumber());
   const [numberOfGuesses, setNumberOfGuesses] = useState(0);
   const [latestGuess, setLatestGuess] = useState(null);
-  const [isCorrectGuess, setIsCorrectGuess] = useState(latestGuess === numberToGuess);
-  const [isGameOver, setIsGameOver] = useState(isCorrectGuess || numberOfGuesses === MAX_ATTEMPTS);
 
   const handleGuess = (guess) => {
-    setLatestGuess(guess);
+    setLatestGuess(Number(guess));
     setNumberOfGuesses(sum => sum + 1);
   }
 
@@ -27,14 +25,8 @@ const NumberGuessingGame = () => {
     setLatestGuess(null);
   } 
 
-  useEffect( () => {
-    console.log("Number to guess: ", numberToGuess);
-    console.log("Number of guesses: ", numberOfGuesses);
-    console.log("Latest Guess: ", latestGuess);
-
-    setIsCorrectGuess(latestGuess === numberToGuess);
-    setIsGameOver(isCorrectGuess || numberOfGuesses === MAX_ATTEMPTS);
-  }, [latestGuess, numberOfGuesses, isCorrectGuess, numberToGuess]);
+  const isCorrectGuess = latestGuess === numberToGuess;
+	const isGameOver = isCorrectGuess || numberOfGuesses === MAX_ATTEMPTS;
 
   return (
     <div>
