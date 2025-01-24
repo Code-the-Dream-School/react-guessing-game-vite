@@ -24,9 +24,10 @@ const handleGuess = (guess) => {
 }
 
 const handleReset = () => {
+  setNumberToGuess(getRandomNumber())
   setNumberOfGuesses(0);
   setLatestGuess(null);
-
+}
  const isCorrectGuess = latestGuess === numberToGuess;
  const isGameOver = isCorrectGuess || numberOfGuesses === MAX_ATTEMPTS;
 
@@ -48,8 +49,7 @@ const handleReset = () => {
           />
         )}
       </div>
-    );
+    )
   }
-}
 
 export default NumberGuessingGame;
