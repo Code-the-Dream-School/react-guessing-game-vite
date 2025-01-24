@@ -51,6 +51,6 @@ const NumberGuessingGame = () => {
       )}
     </div>
   );
-}
+};
 
 export default NumberGuessingGame;
