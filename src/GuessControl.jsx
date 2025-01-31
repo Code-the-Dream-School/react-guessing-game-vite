@@ -23,4 +23,4 @@ const GuessControl = ({ onGuess }) => {
   );
 };
 
-export default GuessControl; 
+export default GuessControl;
