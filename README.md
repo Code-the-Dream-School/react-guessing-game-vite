@@ -66,3 +66,4 @@ If you want to attempt this on your own without a step by step walkthrough first
 - [ ] If you still have the old class version around as `NumberGuessingGameOld`, delete it.
 
 </details>
+# mls-snake
