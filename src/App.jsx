@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import {Component} from "react";
 import NumberGuessingGame from "./NumberGuessingGame";
 import "./App.css";
 
@@ -11,5 +11,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
